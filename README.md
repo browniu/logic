@@ -4,6 +4,7 @@
 ## 指定位数和范围的随机不重复整数组
 ```JavaScript
 const randomArrayInLength = (n, [min, max] = [0, 10]) => new Promise(resolve => {
+    max = max - min >= n ? max : min+n
     let result = [];
     const geneItem = () => {
         const item = Math.floor(Math.random() * (max - min + 1) + min);
