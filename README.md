@@ -17,3 +17,19 @@ const randomArrayInLength = (n, [min, max] = [0, 10]) => new Promise(resolve => 
 
 randomArrayInLength(10).then(res => console.log(res));
 ```
+## 柯里化
+```JavaScript
+const func = (a, b) => console.log(a, b);
+const curryFunc = a => b => console.log(a, b)
+```
+```JavaScript
+const curryFunc = function (a) {
+    if ([...arguments].length === 2) console.log(arguments[0], arguments[1])
+    if ([...arguments].length === 1) return function (b) {
+        console.log(a, b)
+    }
+};
+
+curryFunc(1, 2);
+curryFunc(1)(2);
+```
