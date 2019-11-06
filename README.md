@@ -77,3 +77,20 @@ const cleanCopy = (array) => {
 
 console.log(cleanCopy([2, 4, 2, 1]));
 ```
+
+## 数组扁平化
+```JavaScript
+const arrayFlat = array => {
+    let result = [];
+    array.map(e => {
+        if (Array.isArray(e)) result = result.concat(arrayFlat(e));
+        else result.push(e)
+    });
+    return result
+};
+console.log(arrayFlat([3, 4, 'a', true, [3, ['c', 2], 5]]));
+```
+```JavaScript
+const arrayFlatInNumber = array => array.toString().split(',').map(e => Number(e));
+console.log(arrayFlatInNumber([1, 2, [3, [7, 8, 9]], 5, 6]));
+```
