@@ -47,3 +47,22 @@ const stringCaseExchange = (string) => {
 
 console.log(stringCaseExchange('fafefaefDWW342FeafwEF'))
 ```
+
+## 冒泡排序
+```JavaScript
+const bubbleSort = (array) => {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length - i; j++) {
+            if (array[j - 1] && array[j - 1] > array[j]) {
+                const left = array[j - 1];
+                array[j - 1] = array[j];
+                array[j] = left
+            }
+        }
+    }
+    return array
+};
+
+console.log(bubbleSort([4, 6, 2, 1, 5, 3]));
+
+```
