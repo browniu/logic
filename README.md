@@ -77,6 +77,9 @@ const cleanCopy = (array) => {
 
 console.log(cleanCopy([2, 4, 2, 1]));
 ```
+```JavaScript
+const cleanCopyFilter = array => array.filter((v, i, arr) => arr.indexOf(v) === i);
+```
 
 ## 数组扁平化
 ```JavaScript
