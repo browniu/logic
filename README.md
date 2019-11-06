@@ -94,3 +94,15 @@ console.log(arrayFlat([3, 4, 'a', true, [3, ['c', 2], 5]]));
 const arrayFlatInNumber = array => array.toString().split(',').map(e => Number(e));
 console.log(arrayFlatInNumber([1, 2, [3, [7, 8, 9]], 5, 6]));
 ```
+
+## 对象深拷贝
+```JavaScript
+const deepCopy = obj =>{
+    let result = Array.isArray(obj)?[]:{}
+    for(k in obj){
+        if (typeof obj[k] === 'object' && obj[k] !== null) result[k]= deeCopy(obj[k])
+        else result[k] = obj[k]
+    }
+    return result
+}
+```
