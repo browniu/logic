@@ -66,3 +66,14 @@ const bubbleSort = (array) => {
 console.log(bubbleSort([4, 6, 2, 1, 5, 3]));
 
 ```
+
+## 数组去重
+```JavaScript
+const cleanCopy = (array) => {
+    let box = [];
+    for (i of array) if (!box.includes(i)) box.push(i);
+    return box
+};
+
+console.log(cleanCopy([2, 4, 2, 1]));
+```
