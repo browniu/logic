@@ -158,3 +158,7 @@ console.log(stringToQuery('?name=xixi&age=18'))
 const arrayAdd = array => array.reduce((x, y) => x + y)
 ```
 
+## 延时器
+```JavaScript
+const delay = (time = 500) => new Promise(resolve => setTimeout(() => resolve(), time))
+```
