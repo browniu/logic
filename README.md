@@ -124,3 +124,31 @@ const yearCounter = year => {
 
 console.log(yearCounter(2021));
 ```
+
+## QueryString
+```JavaScript
+const queryToString = query => {
+    let result = []
+    for (k in query) {
+        result.push(`${k}=${query[k]}`)
+    }
+    return '?' + result.join('&')
+};
+
+console.log(queryToString({name: 'xixi', age: 18}))
+```
+```JavaScript
+const stringToQuery = (string) => {
+    string = /\?/.test(string) ? string.split('?')[1] : string.split('?')[0]
+    string = string.split('&');
+    let obj = {}
+    string.forEach(e => {
+        const key = e.split('=')[0]
+        const value = e.split('=')[1]
+        obj[key] = value
+    })
+    return obj
+};
+
+console.log(stringToQuery('?name=xixi&age=18'))
+```
