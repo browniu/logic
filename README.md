@@ -152,3 +152,9 @@ const stringToQuery = (string) => {
 
 console.log(stringToQuery('?name=xixi&age=18'))
 ```
+
+## 数组迭代
+```JavaScript
+const arrayAdd = array => array.reduce((x, y) => x + y)
+```
+
