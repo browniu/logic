@@ -109,3 +109,18 @@ const deepCopy = obj =>{
     return result
 }
 ```
+## 倒计时
+```JavaScript
+const yearCounter = year => {
+    const now = new Date().getTime();
+    const target = new Date(year, 0, 0, 0, 0, 0).getTime();
+    const during = (target - now) / 1000;
+    const days = Math.floor(during / (60 * 60 * 24));
+    const hours = Math.floor(during % (60 * 60 * 24) / (60 * 60));
+    const minutes = Math.floor(during % (60 * 60 * 24) % (60 * 60) / 60);
+    const seconds = Math.floor(during % (60 * 60 * 24) % (60 * 60) % 60);
+    console.log(`距离${year}年还有${days}天${hours}时${minutes}分${seconds}秒`)
+};
+
+console.log(yearCounter(2021));
+```
