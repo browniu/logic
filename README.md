@@ -119,7 +119,7 @@ const yearCounter = year => {
     const hours = Math.floor(during % (60 * 60 * 24) / (60 * 60));
     const minutes = Math.floor(during % (60 * 60 * 24) % (60 * 60) / 60);
     const seconds = Math.floor(during % (60 * 60 * 24) % (60 * 60) % 60);
-    console.log(`距离${year}年还有${days}天${hours}时${minutes}分${seconds}秒`)
+    return `距离${year}年还有${days}天${hours}时${minutes}分${seconds}秒`
 };
 
 console.log(yearCounter(2021));
