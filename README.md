@@ -33,3 +33,17 @@ const curryFunc = function (a) {
 curryFunc(1, 2);
 curryFunc(1)(2);
 ```
+
+## 字符串大小写交换
+```JavaScript
+const stringCaseExchange = (string) => {
+    string = string.split('').map(e => {
+        if (/[a-z]/.test(e)) return e.toUpperCase();
+        if (/[A-Z]/.test(e)) return e.toLowerCase();
+        return e
+    });
+    return string.join('')
+};
+
+console.log(stringCaseExchange('fafefaefDWW342FeafwEF'))
+```
