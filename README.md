@@ -217,3 +217,17 @@ const fbnq = n => {
     return fbnq(n - 1) + fbnq(n - 2)
 };
 ```
+
+## 对象扁平化
+```JavaScript
+const objFlat = (obj, prefix) => {
+    let result = Array.isArray(obj) ? [] : {}
+    for (k in obj) {
+        const key = !prefix ? k : /^\d$/.test(k) ? `${prefix}[${k}]` : `${prefix}.${k}`
+        if (obj[k] instanceof Object) result = Object.assign(result, objFlat(obj[k], key))
+        else result[key] = obj[k]
+    }
+    return result
+};
+```
+
