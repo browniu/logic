@@ -201,3 +201,11 @@ const throttle=(time,func)=>{
 ```
 document.body.onclick=debounce/throttle(500,()=>console.log('click'))
 ```
+
+## 阶乘
+```JavaScript
+const cramp = n =>{
+    if(n<=1) return n
+    return n * cramp(n-1)
+}
+```
