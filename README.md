@@ -175,3 +175,29 @@ const chatsList = string => {
     return result
 };
 ```
+
+## 防抖/截流
+```JavaScript
+const debounce=(time,func)=>{
+    let timer;
+    return ()=>{
+        clearTimeout(timer)
+        setTimeout(func,time)
+    }
+}
+```
+```JavaScript
+const throttle=(time,func)=>{
+    let start =0
+    return ()=>{
+        let now = Date.now()
+        if(now-start>=time){
+            start=now
+            func()
+        }
+    }
+}
+```
+```
+document.body.onclick=debounce/throttle(500,()=>console.log('click'))
+```
