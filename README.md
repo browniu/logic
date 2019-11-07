@@ -209,3 +209,11 @@ const cramp = n =>{
     return n * cramp(n-1)
 }
 ```
+
+## 斐波纳切
+```JavaScript
+const fbnq = n => {
+    if (n <= 2) return 1;
+    return fbnq(n - 1) + fbnq(n - 2)
+};
+```
