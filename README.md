@@ -163,3 +163,15 @@ const arrayAdd = array => array.reduce((x, y) => x + y)
 ```JavaScript
 const delay = (time = 500) => new Promise(resolve => setTimeout(() => resolve(), time))
 ```
+
+## 字符频次
+```JavaScript
+const chatsList = string => {
+    let result = {};
+    string.split('').forEach(e => {
+        if (!result.hasOwnProperty(e)) result[e] = 1;
+        else result[e] = result[e] + 1
+    });
+    return result
+};
+```
