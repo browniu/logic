@@ -231,6 +231,11 @@ const objFlat = (obj, prefix) => {
 };
 ```
 
+## 数组扁平化
+```JavaScript
+array.flat(Infinity)
+```
+
 ## 多维排序
 ```JavaScript
  const attriblesSort = array =>array.sort((a,b)=>{
