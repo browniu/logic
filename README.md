@@ -156,7 +156,7 @@ console.log(stringToQuery('?name=xixi&age=18'))
 
 ## 数组迭代
 ```JavaScript
-const arrayAdd = array => array.reduce((x, y) => x + y)
+const arrayAdd = array => array.reduce((all, current) => all + current)
 ```
 
 ## 延时器
@@ -231,3 +231,12 @@ const objFlat = (obj, prefix) => {
 };
 ```
 
+## 多维排序
+```JavaScript
+ const attriblesSort = array =>array.sort((a,b)=>{
+    if(a.g!==b.g) return b.g-a.g
+    else if(a.s!==b.s) return b.s-a.s
+    else if(a.b!==b.b) return b.b=a.b
+    else if(a.name!==b.name) return b.name>a.bame?-1:1
+ })
+```
