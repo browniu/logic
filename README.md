@@ -245,3 +245,14 @@ array.flat(Infinity)
     if (a.name !== b.name) return b.name > a.name ? -1 : 1
  })
 ```
+
+## 组合遍历
+```JavaScript
+const arrayGroupTraverse = (array,target)=>{
+    for(i=0; i<array.length; i++){
+        for(j=i; j<array.length; j++){
+            if(array[i]+array[j]===count) return [i,j]
+        }
+    }
+}
+```
