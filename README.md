@@ -256,3 +256,20 @@ const arrayGroupTraverse = (array,target)=>{
     }
 }
 ```
+
+## 奶牛繁衍
+```JavaScript
+const howManyCowsAfterYears = n => new Promise(resolve => {
+    let num = 1;
+    const circle = () => {
+        for (let i = 1; i <= 6; i++) {
+            n = n - 1;
+            if (i === 3 || i === 5) num = num + 1;
+            if (i === 6) num = num - 1;
+            if (n <= 0) resolve(num)
+        }
+        if (n > 0) circle()
+    };
+    circle()
+});
+```
