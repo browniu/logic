@@ -273,3 +273,21 @@ const howManyCowsAfterYears = n => new Promise(resolve => {
     circle()
 });
 ```
+
+## 连续子串
+```JavaScript
+const findLongestString = string => {
+    let str = '';
+    let temp = '';
+    let result = [];
+    for (let e of string) {
+        str = str.includes(e) ? str + e : e;
+        if (str.length > temp.length) {
+            result = [];
+            temp = str;
+        }
+        if (str.length === temp.length) result.push(str)
+    }
+    return result
+};
+```
