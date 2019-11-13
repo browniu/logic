@@ -328,3 +328,8 @@ a = a + b
 b = a - b
 a = a - b
 ```
+
+## 数组最大值
+```JavaScript
+Math.max.apply(null,[...])
+```
