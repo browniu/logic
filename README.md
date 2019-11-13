@@ -321,3 +321,10 @@ const quickSort = array => {
     return [].concat(quickSort(left), array[0], quickSort(right))
 };
 ```
+
+## 数值交换
+```JavaScript
+a = a + b
+b = a - b
+a = a - b
+```
