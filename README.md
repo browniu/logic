@@ -345,3 +345,16 @@ const hashString = n => {
     return result.join('')
 };
 ```
+
+## 乱序重排
+```JavaScript
+const unSortArray = array => new Promise(resolve => {
+    const result = [];
+    const circle = () => {
+        result.push(array.splice(Math.floor(Math.random() * array.length), 1)[0]);
+        if (array.length < 1) resolve(result);
+        else circle()
+    };
+    circle()
+});
+```
