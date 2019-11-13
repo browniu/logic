@@ -166,6 +166,22 @@ const delay = (time = 500) => new Promise(resolve => setTimeout(() => resolve(),
 
 ## 字符频次
 ```JavaScript
+const chatMap = string => {
+    const result = [];
+    for (let e of string) {
+        let newItem = true;
+        for (let i in result) {
+            if (result[i][0] === e) {
+                result[i][1] = result[i][1] + 1;
+                newItem = false
+            }
+        }
+        if (newItem) result.push([e, 1])
+    }
+    return result.sort((a, b) => b[1] - a[1])
+};
+```
+```JavaScript
 const chatsList = string => {
     let result = {};
     string.split('').forEach(e => {
@@ -291,3 +307,4 @@ const findLongestString = string => {
     return result
 };
 ```
+
