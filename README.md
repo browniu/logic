@@ -333,3 +333,15 @@ a = a - b
 ```JavaScript
 Math.max.apply(null,[...])
 ```
+
+## 哈希字符串
+```JavaScript
+const hashString = n => {
+    const result = []
+    for (let i = 0; i < n; i++) {
+        const code = Math.floor(Math.random() * ('z'.charCodeAt(0) - 'a'.charCodeAt(0)));
+        result.push(String.fromCharCode(code + 'a'.charCodeAt(0)))
+    }
+    return result.join('')
+};
+```
