@@ -308,3 +308,16 @@ const findLongestString = string => {
 };
 ```
 
+## 快速排序
+```JavaScript
+const quickSort = array => {
+    if (array.length <= 1) return array;
+    const left = [];
+    const right = [];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > array[0]) right.push(array[i])
+        else left.push(array[i])
+    }
+    return [].concat(quickSort(left), array[0], quickSort(right))
+};
+```
