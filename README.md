@@ -358,3 +358,6 @@ const unSortArray = array => new Promise(resolve => {
     circle()
 });
 ```
+```JavaScript
+array.sort(()=>Math.random()-0.5)
+```
