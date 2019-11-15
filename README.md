@@ -361,3 +361,23 @@ const unSortArray = array => new Promise(resolve => {
 ```JavaScript
 array.sort(()=>Math.random()-0.5)
 ```
+
+## 字符分布
+```JavaScript
+const mapChatIndex = string => {
+    let result = [];
+    for (let i = 0; i < string.length; i++) {
+        let char = string.charAt(i);
+        let newItem = true;
+        result.some(v => {
+            if (v.name === char) {
+                v.index.push(i);
+                newItem = false;
+                return true
+            }
+        });
+        newItem && result.push({name: char, index: [i]})
+    }
+    return result.sort((a, b) => b.index.length - a.index.length)
+};
+```
