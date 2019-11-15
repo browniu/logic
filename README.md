@@ -420,3 +420,7 @@ const findIndex = (array, target) => {
     }
 };
 ```
+## 模版引擎
+```JavaScript
+const tempRender = (temp,data)=>temp.replact(/{{.*?}}/g,(m,k)=>data[k]||m)
+```
