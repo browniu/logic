@@ -422,7 +422,7 @@ const findIndex = (array, target) => {
 ```
 ## 模版引擎
 ```JavaScript
-const tempRender = (temp,data)=>temp.replact(/{{.*?}}/g,(m,k)=>data[k]||m)
+const renderTemp = (temp, data) => temp.replace(/{{(.*?)}}/g, (m, k) => data[k] || m);
 ```
 
 ## 子串包含
