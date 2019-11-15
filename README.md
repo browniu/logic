@@ -424,3 +424,13 @@ const findIndex = (array, target) => {
 ```JavaScript
 const tempRender = (temp,data)=>temp.replact(/{{.*?}}/g,(m,k)=>data[k]||m)
 ```
+
+## 子串包含
+```JavaScript
+const isContain = (a, b) => {
+    for (let i = 0; i < a.length; i++) {
+        if (a.slice(i, i + b.length) === b) return i
+    }
+    return -1
+};
+```
