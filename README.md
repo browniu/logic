@@ -126,32 +126,36 @@ const yearCounter = year => {
 console.log(yearCounter(2021));
 ```
 
-## QueryString
+## QueryString/ParamsString
 ```JavaScript
-const queryToString = query => {
-    let result = []
-    for (k in query) {
-        result.push(`${k}=${query[k]}`)
+const stringParams = params => {
+    let result = [];
+    for (let k in params) {
+        let string = k + '=' + params[k].toString();
+        if (Array.isArray(params[k])) string = params[k].map(v => k + '=' + v).join('&');
+        if (params[k] === undefined) string = k;
+        result.push(string)
     }
     return '?' + result.join('&')
 };
-
-console.log(queryToString({name: 'xixi', age: 18}))
 ```
 ```JavaScript
-const stringToQuery = (string) => {
-    string = /\?/.test(string) ? string.split('?')[1] : string.split('?')[0]
-    string = string.split('&');
-    let obj = {}
-    string.forEach(e => {
-        const key = e.split('=')[0]
-        const value = e.split('=')[1]
-        obj[key] = value
-    })
-    return obj
+onst paramsString = url => {
+    let result = [];
+    url = decodeURI(url);
+    url = /\?/.test(url) ? url.split('?')[1] : url.split('?')[0];
+    const params = url.split('&');
+    params.forEach(v => {
+        const key = v.split('=')[0];
+        let val = v.split('=')[1];
+        val = Number(val).toString() !== 'NaN' ? Number(val) : val === undefined ? true : val
+        if (result.hasOwnProperty(key)) {
+            if (Array.isArray(result[key])) result[key].push(val);
+            else result[key] = [result[key], val]
+        } else result[key] = val
+    });
+    return result
 };
-
-console.log(stringToQuery('?name=xixi&age=18'))
 ```
 
 ## 数组迭代
