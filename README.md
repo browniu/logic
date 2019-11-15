@@ -381,3 +381,22 @@ const mapChatIndex = string => {
     return result.sort((a, b) => b.index.length - a.index.length)
 };
 ```
+
+## 数组升维
+```JavaScript
+const dataTree = array => {
+    let result = [];
+    array.forEach(vA => {
+        let newItem = true;
+        result.some(vR => {
+            if (vA.province === vR.province) {
+                vR.city.push({name: vA.city, code: vA.code});
+                newItem = false;
+                return true
+            }
+        });
+        newItem && result.push({province: vA.province, city: [{name: vA.city, code: vA.code}]})
+    });
+    return result
+};
+```
