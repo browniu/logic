@@ -400,3 +400,19 @@ const dataTree = array => {
     return result
 };
 ```
+
+## 二分查找
+```JavaScript
+const findIndex = (array, target) => {
+    array.sort();
+    let start = 0;
+    let end = array.length - 1;
+
+    while (start <= end) {
+        const middle = (start + end) / 2;
+        if (target > array[middle]) start = middle + 1;
+        if (target < array[middle]) end = middle - 1;
+        if (target === array[middle]) return middle
+    }
+};
+```
