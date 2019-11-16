@@ -448,3 +448,10 @@ Array.prototype.clearRepeatItem = function () {
     return repeat
 };
 ```
+
+## 参数排序
+```JavaScript
+function argumentsSort(){
+    return [...arguments].sort((a,b)=>a-b)
+}
+```
