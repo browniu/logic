@@ -434,17 +434,14 @@ const isContain = (a, b) => {
     return -1
 };
 ```
-## 数组原型去重
+## 原型方法去重
 ```JavaScript
-Array.prototype.clearRepeatItem = function () {
+Array.prototype.clearRepeat = function () {
     let result = [];
     let repeat = [];
-    this.forEach((v, i) => {
-        if (result.includes(v)) {
-            repeat.push(v);
-            this.splice(i, 1)
-        } else result.push(v)
-    });
+    this.forEach(v => result.includes(v) ? repeat.push(v) : result.push(v));
+    this.splice(0);
+    result.forEach(v => this.push(v));
     return repeat
 };
 ```
