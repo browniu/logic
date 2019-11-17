@@ -97,14 +97,13 @@ const arrayFlatInNumber = array => array.toString().split(',').map(v => /^[0-9]*
 
 ## 对象深拷贝
 ```JavaScript
-const deepCopy = obj =>{
-    let result = Array.isArray(obj)?[]:{}
-    for(k in obj){
-        if (typeof obj[k] === 'object' && obj[k] !== null) result[k]= deeCopy(obj[k])
-        else result[k] = obj[k]
+const deepClone = object => {
+    let result = Array.isArray(object) ? [] : {};
+    for (let k in object) {
+        object[k] instanceof Object ? result[k] = deepClone(object[k]) : result[k] = object[k]
     }
     return result
-}
+};
 ```
 ## 倒计时
 ```JavaScript
@@ -236,12 +235,11 @@ const fbnq = n => {
 
 ## 对象扁平化
 ```JavaScript
-const objFlat = (obj, prefix) => {
-    let result = Array.isArray(obj) ? [] : {}
-    for (k in obj) {
-        const key = !prefix ? k : /^\d$/.test(k) ? `${prefix}[${k}]` : `${prefix}.${k}`
-        if (obj[k] instanceof Object) result = Object.assign(result, objFlat(obj[k], key))
-        else result[key] = obj[k]
+const objectFlat = (object, prefix) => {
+    let result = Array.isArray(object) ? [] : {}
+    for (let k in object) {
+        const key = !prefix ? k : /^[0-9]*$/.test(k) ? `${prefix}[${k}]` : `${prefix}.${k}`;
+        object[k] instanceof Object? result = Object.assign(result, objectFlat(object[k], key)) : result[key] = object[k]
     }
     return result
 };
