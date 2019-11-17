@@ -86,17 +86,13 @@ const cleanCopyFilter = array => array.filter((v, i, arr) => arr.indexOf(v) === 
 ```JavaScript
 const arrayFlat = array => {
     let result = [];
-    array.map(e => {
-        if (Array.isArray(e)) result = result.concat(arrayFlat(e));
-        else result.push(e)
-    });
+    array.forEach(v => Array.isArray(v) ? result = result.concat(arrayFlat(v)) : result.push(v));
     return result
 };
-console.log(arrayFlat([3, 4, 'a', true, [3, ['c', 2], 5]]));
 ```
+
 ```JavaScript
-const arrayFlatInNumber = array => array.toString().split(',').map(e => Number(e));
-console.log(arrayFlatInNumber([1, 2, [3, [7, 8, 9]], 5, 6]));
+const arrayFlatInNumber = array => array.toString().split(',').map(v => /^[0-9]*$/.test(v) ? Number(v) : v)
 ```
 
 ## 对象深拷贝
