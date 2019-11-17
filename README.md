@@ -82,18 +82,6 @@ console.log(cleanCopy([2, 4, 2, 1]));
 const cleanCopyFilter = array => array.filter((v, i, arr) => arr.indexOf(v) === i);
 ```
 
-## 数组扁平化
-```JavaScript
-const arrayFlat = array => {
-    let result = [];
-    array.forEach(v => Array.isArray(v) ? result = result.concat(arrayFlat(v)) : result.push(v));
-    return result
-};
-```
-
-```JavaScript
-const arrayFlatInNumber = array => array.toString().split(',').map(v => /^[0-9]*$/.test(v) ? Number(v) : v)
-```
 
 ## 对象深拷贝
 ```JavaScript
@@ -247,7 +235,15 @@ const objectFlat = (object, prefix) => {
 
 ## 数组扁平化
 ```JavaScript
-array.flat(Infinity)
+const arrayFlat = array => {
+    let result = [];
+    array.forEach(v => Array.isArray(v) ? result = result.concat(arrayFlat(v)) : result.push(v));
+    return result
+};
+```
+
+```JavaScript
+const arrayFlatInNumber = array => array.toString().split(',').map(v => /^[0-9]*$/.test(v) ? Number(v) : v)
 ```
 
 ## 多维排序
