@@ -459,17 +459,19 @@ function argumentsSort(){
 ## 十六进制转RGB
 ```JavaScript
 const toRGB = string => {
-    if (!/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/) return string
-    let result = [];
+    if (!/^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(string)) return string
+    let result = []
     if (string.length === 4) {
-        const newString = [];
+        let newString = []
         for (let i = 1; i < string.length; i++) {
             newString.push(string[i], string[i])
         }
         string = '#' + newString.join('')
     }
-    for (let i in string) {
-        if (i % 2 !== 0) result.push(parseInt('0x' + string.slice(i, Number(i) + 2)))
+    for (let i = 0; i < string.length; i++) {
+        if (i % 2 !== 0) {
+            result.push(parseInt('0x' + string[i] + string[i + 1]))
+        }
     }
     return 'rgb(' + result.join(',') + ')'
 };
