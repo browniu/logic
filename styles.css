@@ -201,6 +201,13 @@ ol {
     width: 88px;
     display: inline-block;
     position: relative;
+    background-color: #fefbf8;
+    background-image: url('./images/IMG_0409.jpg');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 72%;
+    border-radius: 50%;
+    border: 1px solid #f1f1f1;
 }
 
 .basic .basic-photo img {
