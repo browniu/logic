@@ -173,7 +173,7 @@ ol {
 .mr-template .mr-template_title span:before {
     content: '';
     display: block;
-    border-left: 3px solid #00B38A;
+    border-left: 3px solid #3eaf7c;
     height: 16px;
     width: 3px;
     position: absolute;
