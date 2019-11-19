@@ -26,6 +26,10 @@ const curryFunc = a => b => console.log(a, b)
 ```
 ```JavaScript
 const curry = (f, args1 = []) => (...args2) => f.length === args1.concat(args2).length ? f(...args1.concat(args2)) : curry(f, args1.concat(args2));
+
+const add = curry((a, b, c, d) => a + b + c + d);
+console.log(add(1, 2, 3, 4));
+console.log(add(1)(2, 3)(4));
 ```
 
 ## 字符串大小写交换
