@@ -18,21 +18,14 @@ const randomArrayInLength = (n, [min, max] = [0, 10]) => new Promise(resolve => 
 
 randomArrayInLength(10).then(res => console.log(res));
 ```
+
 ## 函数柯里化
 ```JavaScript
 const func = (a, b) => console.log(a, b);
 const curryFunc = a => b => console.log(a, b)
 ```
 ```JavaScript
-const curryFunc = function (a) {
-    if ([...arguments].length === 2) console.log(arguments[0], arguments[1])
-    if ([...arguments].length === 1) return function (b) {
-        console.log(a, b)
-    }
-};
-
-curryFunc(1, 2);
-curryFunc(1)(2);
+const curry = (f, args1 = []) => (...args2) => f.length === args1.concat(args2).length ? f(...args1.concat(args2)) : curry(f, args1.concat(args2));
 ```
 
 ## 字符串大小写交换
@@ -65,7 +58,6 @@ const bubbleSort = (array) => {
 };
 
 console.log(bubbleSort([4, 6, 2, 1, 5, 3]));
-
 ```
 
 ## 数组去重
