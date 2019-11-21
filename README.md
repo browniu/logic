@@ -459,3 +459,34 @@ const toRGB = string => {
     return 'rgb(' + result.join(',') + ')'
 };
 ```
+## 限制并发
+```JavaScript
+function limitRequest(URL, count = 1, concurrentCount = 1) {
+    return new Promise(resolveLast => {
+        const startTime = new Date().getTime();
+        const requests = [];
+        let result = [];
+        for (let i = 0; i < count; i++) {
+            let requestItem = () => new Promise((resolve, reject) => {
+                fetch(URL)
+                    .then(response => response.json())
+                    .then(json => resolve(json))
+            });
+            requests.push(requestItem)
+        }
+        const run = () => Promise.all(requests.splice(0, concurrentCount).map(v => v())).then(res => {
+            console.log(res);
+            result = result.concat(res);
+            if (requests.length > 0) run();
+            else {
+                const endTime = new Date().getTime();
+                resolveLast({
+                    result,
+                    time: `平均请求耗时 ${(endTime - startTime) / 1000 / count} ms`
+                })
+            }
+        });
+        run()
+    })
+}
+```
