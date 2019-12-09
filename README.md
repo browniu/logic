@@ -490,3 +490,18 @@ function limitRequest(URL, count = 1, concurrentCount = 1) {
     })
 }
 ```
+
+## 求数组中最接近某个值的值序列
+
+const approachValueInArray = (value, array) => {
+    let index = 0
+    let temp = 0
+    array.forEach((item, i) => {
+        const dis = Math.abs(item - value)
+        if (dis > temp) {
+            index = i
+            temp = dis
+        }
+    })
+    return index
+}
